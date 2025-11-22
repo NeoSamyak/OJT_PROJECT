@@ -81,6 +81,10 @@ toggle.addEventListener("click", () => {
     }, 120);
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d51089cf547abf186af9f660fc1eb120eb0b89e0
 document.getElementById("shuffle-btn").addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * songs.length);
   playSong(songs[randomIndex]);
