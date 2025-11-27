@@ -10,25 +10,25 @@ const songs = [
   { name: "Senorita", artist: "Shawn Mendes", image: "https://i.scdn.co/image/ab67616d0000b273bbda2325afa7cfda80ccd856"},
 ]
 
-const grid = document.getElementById("song-grid");
-const searchInput = document.getElementById("search-input");
+ const grid = document.getElementById("song-grid");
+ const searchInput = document.getElementById("search-input");
 
 function renderSongs(list) {
   grid.innerHTML = "";
-  list.forEach(song => {
-    const card = document.createElement("div");
-    card.className = "card";
+ list.forEach(song => {
+   const card = document.createElement("div");
+       card.className = "card";
     card.onclick = () => playSong(song);
-    card.innerHTML = `
-      <div class="thumbnail" style="background-image: url('${song.image}')"></div>
-      <p>${song.name}</p>
-      <small style="opacity:0.6">${song.artist}</small>
+   card.innerHTML = `
+     <div class="thumbnail" style="background-image: url('${song.image}')"></div>
+     <p>${song.name}</p>
+     <small style="opacity:0.6">${song.artist}</small>
     `;
-    grid.appendChild(card);
+   grid.appendChild(card);
   });
-}
+ }
 
-renderSongs(songs);
+ renderSongs(songs);
 
 function toggleSearch() {
   if(searchInput.style.display === "none"){
