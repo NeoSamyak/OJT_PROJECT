@@ -10,8 +10,8 @@ const songs = [
   { name: "Senorita", artist: "Shawn Mendes", audio: "./audio/Glass_animal_-_Heat_Waves_(mp3.pm).mp3", image: "https://i.scdn.co/image/ab67616d0000b273bbda2325afa7cfda80ccd856" },
 ]
 
-const grid = document.getElementById("song-grid");
-const searchInput = document.getElementById("search-input");
+ const grid = document.getElementById("song-grid");
+ const searchInput = document.getElementById("search-input");
 
 function renderSongs(songList) {
   grid.innerHTML = "";
@@ -20,15 +20,15 @@ function renderSongs(songList) {
     card.className = "card";
     card.onclick = () => playSong(song);
     card.innerHTML = `
-     <div class="thumbnail" style="background-image: url('${song.image}')"></div>
-     <p>${song.name}</p>
-     <small style="opacity:0.6">${song.artist}</small>
+      <div class="thumbnail" style="background-image: url('${song.image}')"></div>
+      <p>${song.name}</p>
+      <small style="opacity:0.6">${song.artist}</small>
     `;
-    grid.appendChild(card);
+   grid.appendChild(card);
   });
-}
+ }
 
-renderSongs(songs);
+ renderSongs(songs);
 
 function toggleSearch() {
   if (searchInput.style.display === "none") {
