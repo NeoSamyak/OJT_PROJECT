@@ -15,22 +15,14 @@ const songs = [
 
 function renderSongs(songList) {
   grid.innerHTML = "";
-<<<<<<< HEAD
- list.forEach(song => {
-   const card = document.createElement("div");
-       card.className = "card";
-    card.onclick = () => playSong(song);
-   card.innerHTML = `
-=======
-  songList.forEach(song => {
+  list.forEach(song => {
     const card = document.createElement("div");
     card.className = "card";
     card.onclick = () => playSong(song);
     card.innerHTML = `
->>>>>>> e8c4f57fa78197cae79c1b5f18dc082d3fbf8610
-     <div class="thumbnail" style="background-image: url('${song.image}')"></div>
-     <p>${song.name}</p>
-     <small style="opacity:0.6">${song.artist}</small>
+      <div class="thumbnail" style="background-image: url('${song.image}')"></div>
+      <p>${song.name}</p>
+      <small style="opacity:0.6">${song.artist}</small>
     `;
    grid.appendChild(card);
   });
