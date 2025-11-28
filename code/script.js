@@ -56,7 +56,7 @@ function showAllSongs() {
 }
 
 function playSong(song) {
-  document.getElementById("song-name").innerText = song.name;
+  document.getElementById("song-name").innerHTML = song.name;
   document.getElementById("song-thumb").style.backgroundImage =
     `url('${song.image}')`;
   document.getElementById('audioEle').src = song.audio;
