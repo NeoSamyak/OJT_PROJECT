@@ -95,3 +95,36 @@ toggle.addEventListener("click", () => {
 //   const randomIndex = Math.floor(Math.random() * songs.length);
 //   playSong(songs[randomIndex]);
 // });
+
+
+// ======================
+// 🔥 WAVESURFER SETUP
+// ======================
+
+let wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: '#999',
+    progressColor: '#fff',
+    height: 50,
+    responsive: true
+});
+
+// Load song when clicked
+function playSong(song) {
+  document.getElementById("song-name").innerHTML = song.name;
+  document.getElementById("song-thumb").style.backgroundImage = `url('${song.image}')`;
+
+  // Load into WaveSurfer
+  wavesurfer.load(song.audio);
+
+  // Play automatically
+  wavesurfer.on('ready', () => {
+    wavesurfer.play();
+  });
+}
+
+// Play / Pause button
+function togglePlay() {
+  wavesurfer.playPause();
+}
+
