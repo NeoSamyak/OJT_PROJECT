@@ -174,8 +174,18 @@ body {
 }
 #waveform{
   height: 100%;
+  width:50% ;
+  scale:0.91 ;
+  margin-top: 20px;
+  cursor:pointer;
 }
 
 .theme-toggle:hover {
   opacity: 0.8;
+}
+
+footer{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
