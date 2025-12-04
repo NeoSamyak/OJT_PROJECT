@@ -1,3 +1,4 @@
 <!-- PRATEEK KUMAR -->
-The waveform and footer now have a cleaner, more modern CSS design, giving your music player an app-like feel. The waveform now has smoother spacing, sharper peaks, and a balanced layout, making the audio section stand out. The footer now matches the UI with better alignment, typography, and styling. These updates make the interface more professional, responsive, and aesthetically cohesive, improving the user experience.             
+Done the css part of the pagination feature for dark and light theme         
 <!-- Samyak raj singh -->
+Done the pagination feature work 
