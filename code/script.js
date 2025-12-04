@@ -2,7 +2,8 @@ let songs = [];
 let currentSongIndex = -1; 
 
 let currentPage = 1;
-const songsPerPage = 9; 
+const songsPerPage = 6; 
+
 
 const grid = document.getElementById("song-grid");
 const searchInput = document.getElementById("search-input");
@@ -156,9 +157,10 @@ toggle.addEventListener("click", () => {
 let wavesurfer = WaveSurfer.create({
   container: '#waveform',
   waveColor: '#999',
-  progressColor: '#fff',
+  progressColor: '#fff ',
   height: 50,
   responsive: true
+  
 });
 
 const playBtn = document.querySelector('.controls button[onclick="togglePlay()"]');
