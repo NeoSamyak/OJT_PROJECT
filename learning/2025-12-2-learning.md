@@ -1,8 +1,6 @@
 <!-- PRATEEK KUMAR -->
+We worked together to improve the user experience by adding and removing the necessary things                                              
 
 
-We worked together to fix several errors that appeared while fetching the API.
-After spending hours debugging, we finally managed to fetch and integrate it into our website.                                                         
-
-
-<!-- Samyak raj singh -->s
+<!-- Samyak raj singh -->
+Fixed manys things and improved many things that were required
