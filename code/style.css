@@ -1,11 +1,19 @@
 :root {
   --bg-color: #000;
   --text-color: #fff;
+  --btnBackground: #f59e0b;
+  --btnTextColor: #1b1b1b;
+  --activeBtnBackground: #000000;
+  --activeBtnTextColor: #ffe7c2;
 }
 
 .light {
   --bg-color: #fff;
   --text-color: #001;
+  --btnBackground: #357ABD;
+  --btnTextColor: #fff;
+  --activeBtnBackground: #fff;
+  --activeBtnTextColor: #357ABD;
 }
 
 body { 

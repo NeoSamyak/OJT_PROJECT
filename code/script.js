@@ -1,6 +1,9 @@
 let songs = []; 
 let currentSongIndex = -1; 
 
+let currentPage = 1;
+const songsPerPage = 9; 
+
 const grid = document.getElementById("song-grid");
 const searchInput = document.getElementById("search-input");
 
@@ -13,7 +16,11 @@ function renderSongs(songList) {
     return;
   }
 
-  songList.forEach((song, index) => {
+  const start = (currentPage - 1) * songsPerPage;
+  const end = start + songsPerPage;
+  const pageSongs = songList.slice(start, end);
+
+  pageSongs.forEach((song, index) => {
     const card = document.createElement("div");
     card.className = "card";
     card.onclick = () => {
@@ -27,12 +34,57 @@ function renderSongs(songList) {
     `;
     grid.appendChild(card);
   });
+  renderPagination(songList.length);
 }
+
+function renderPagination(totalSongs) {
+  const container = document.getElementById("pagination");
+  container.innerHTML = "";
+
+  const totalPages = Math.ceil(totalSongs / songsPerPage);
+  if (totalPages <= 1) return;
+
+  
+  const prevBtn = document.createElement("button");
+  prevBtn.textContent = "Prev";
+  prevBtn.disabled = currentPage === 1;
+  prevBtn.onclick = () => {
+    currentPage--;
+    renderSongs(songs);
+  };
+  container.appendChild(prevBtn);
+
+  
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add("activeBtn");
+
+    btn.onclick = () => {
+      currentPage = i;
+      renderSongs(songs);
+    };
+
+    container.appendChild(btn);
+  }
+
+
+  const nextBtn = document.createElement("button");
+  nextBtn.textContent = "Next";
+  nextBtn.disabled = currentPage === totalPages;
+  nextBtn.onclick = () => {
+    currentPage++;
+    renderSongs(songs);
+  };
+  container.appendChild(nextBtn);
+}
+
 
 
 async function initializeApp() {
   grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Loading recommended tracks...</p>';
   songs = await MusicAPI.getRecommendedTracks();
+  currentPage = 1;
   renderSongs(songs);
 }
 
@@ -54,11 +106,13 @@ searchInput.addEventListener("keydown", async (e) => {
     const query = searchInput.value.trim();
     if (query === '') {
       songs = await MusicAPI.getRecommendedTracks();
+      currentPage = 1;
       renderSongs(songs);
     } else {
       grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; opacity: 0.6;">Searching...</p>';
       const results = await MusicAPI.searchTracks(query);
       songs = results;
+      currentPage = 1;
       renderSongs(results);
     }
   }
@@ -69,6 +123,7 @@ async function showAllSongs() {
   searchInput.value = "";
   grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Loading recommended tracks...</p>';
   songs = await MusicAPI.getRecommendedTracks();
+  currentPage = 1;
   renderSongs(songs);
 }
 
